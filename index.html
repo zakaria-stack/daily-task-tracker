@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متتبع المهام اليومية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Live Clock -->
+        <header class="header">
+            <h1>متتبع المهام اليومية</h1>
+            <div class="clock" id="clock"></div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <!-- Statistics Section -->
+        <section class="stats">
+            <div class="stat-card">
+                <h3>إجمالي المهام</h3>
+                <span id="totalTasks">0</span>
+            </div>
+            <div class="stat-card">
+                <h3>تم إنجازها</h3>
+                <span id="completedTasks">0</span>
+            </div>
+            <div class="stat-card">
+                <h3>لم تُنجز</h3>
+                <span id="pendingTasks">0</span>
+            </div>
+        </section>
+
+        <!-- Task Input Section -->
+        <section class="task-input">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="أدخل مهمة جديدة...">
+                <button id="addTaskBtn">
+                    <i class="fas fa-plus"></i>
+                    إضافة
+                </button>
+            </div>
+        </section>
+
+        <!-- Search and Controls -->
+        <section class="controls">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="البحث في المهام...">
+            </div>
+            <div class="control-buttons">
+                <select id="sortSelect">
+                    <option value="newest">الأحدث أولاً</option>
+                    <option value="oldest">الأقدم أولاً</option>
+                    <option value="completed">المُنجزة أولاً</option>
+                    <option value="pending">غير المُنجزة أولاً</option>
+                </select>
+                <button id="clearAllBtn" class="clear-btn">
+                    <i class="fas fa-trash-alt"></i>
+                    مسح الكل
+                </button>
+            </div>
+        </section>
+
+        <!-- Quick Status Buttons -->
+        <section class="quick-status">
+            <button id="markAllCompletedBtn" class="status-btn completed">
+                <i class="fas fa-check-circle"></i>
+                تم إنجازها اليوم
+            </button>
+            <button id="markAllPendingBtn" class="status-btn pending">
+                <i class="fas fa-times-circle"></i>
+                لم تُنجز
+            </button>
+        </section>
+
+        <!-- Tasks List -->
+        <section class="tasks-container">
+            <div id="tasksList" class="tasks-list"></div>
+            <div id="noTasksMessage" class="no-tasks">
+                <i class="fas fa-tasks"></i>
+                <p>لا توجد مهام حالياً</p>
+            </div>
+        </section>
+
+        <!-- Toast Notifications -->
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
